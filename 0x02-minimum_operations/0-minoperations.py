@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Calculate the fewest number of operations needed to print n H characters.
+"""
 import math
 
 
@@ -28,8 +31,7 @@ def is_prime(num):
 
 def minOperations(n):
     """
-    Calculate the fewest number of operations needed to result in exactly n H
-        characters.
+    Calculate the fewest number of operations needed to print n H characters.
 
     Args:
         n (int): The desired number of H characters.
