@@ -12,7 +12,7 @@ def makeChange(coins, total):
     coins: list of the values of the coins in your possession
     Return: fewest number of coins needed to meet total
     """
-    if total == 0:
+    if total <= 0:
         return 0
 
     dp = [float('inf')] * (total + 1)
