@@ -29,8 +29,6 @@ def primes_up_to(y):
 
 def isWinner(x, nums):
     """Determine the winner of prime game"""
-    if not x or not nums:
-        return None
     mariaScore = 0
     benScore = 0
     for i in range(x):
