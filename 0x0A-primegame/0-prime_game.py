@@ -2,16 +2,29 @@
 """ 0x0A. Prime Game """
 
 
-def primes_up_to(limit):
-    """Generate list of primes up to limit"""
-    primeNumbers = []
-    sieveList = [True] * (limit + 1)
-    for potentialPrime in range(2, limit + 1):
-        if sieveList[potentialPrime]:
-            primeNumbers.append(potentialPrime)
-            for multiple in range(potentialPrime, limit + 1, potentialPrime):
-                sieveList[multiple] = False
-    return primeNumbers
+def primes_up_to(y):
+    """
+    Generates a list of prime numbers up to y using the Sieve of Eratosthenes.
+
+    Args:
+        y: The upper limit for prime number generation.
+
+    Returns:
+        A list of prime numbers up to y.
+    """
+
+    if y <= 1:
+        return []
+
+    primes = [True] * (y + 1)
+    primes[0] = primes[1] = False
+
+    for p in range(2, int(y**0.5) + 1):
+        if primes[p]:
+            for i in range(p * p, y + 1, p):
+                primes[i] = False
+
+    return [i for i in range(2, y + 1) if primes[i]]
 
 
 def isWinner(x, nums):
