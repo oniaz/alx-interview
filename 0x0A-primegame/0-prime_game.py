@@ -30,6 +30,8 @@ def isWinner(x, nums):
     mariaScore = 0
     benScore = 0
     for i in range(x):
+        if nums[i] == 0:
+            continue
         if nums[i] == 1:
             benScore += 1
         else:
