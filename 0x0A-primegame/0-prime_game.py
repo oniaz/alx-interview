@@ -2,7 +2,7 @@
 """ 0x0A. Prime Game """
 
 
-def primes_up_to(y):
+def primes_up_to(n):
     """
     Generates a list of prime numbers up to y using the Sieve of Eratosthenes.
 
@@ -12,19 +12,33 @@ def primes_up_to(y):
     Returns:
         A list of prime numbers up to y.
     """
+    prime = [True for i in range(n+1)]
+    p = 2
+    while (p * p <= n):
+        if (prime[p]):
+            for i in range(p * p, n+1, p):
+                prime[i] = False
+        p += 1
 
-    if y <= 1:
-        return []
+    # Create a list of prime numbers
+    primes = []
+    for p in range(2, n+1):
+        if prime[p]:
+            primes.append(p)
 
-    primes = [True] * (y + 1)
-    primes[0] = primes[1] = False
+    return primes
+    # if y <= 1:
+    #     return []
 
-    for p in range(2, int(y**0.5) + 1):
-        if primes[p]:
-            for i in range(p * p, y + 1, p):
-                primes[i] = False
+    # primes = [True] * (y + 1)
+    # primes[0] = primes[1] = False
 
-    return [i for i in range(2, y + 1) if primes[i]]
+    # for p in range(2, int(y**0.5) + 1):
+    #     if primes[p]:
+    #         for i in range(p * p, y + 1, p):
+    #             primes[i] = False
+
+    # return [i for i in range(2, y + 1) if primes[i]]
 
 
 def isWinner(x, nums):
