@@ -21,12 +21,14 @@ def primes_up_to(n):
         p += 1
 
     # Create a list of prime numbers
-    primes = []
+    prime_count = 0
+    # primes = []
     for p in range(2, n+1):
         if prime[p]:
-            primes.append(p)
+            prime_count += 1
+            # primes.append(p)
 
-    return primes
+    return prime_count
     # if y <= 1:
     #     return []
 
@@ -51,7 +53,8 @@ def isWinner(x, nums):
         if nums[i] == 1:
             benScore += 1
         else:
-            if (len(primes_up_to(nums[i]))) % 2 == 0:
+            # if (len(primes_up_to(nums[i]))) % 2 == 0:
+            if (primes_up_to(nums[i])) % 2 == 0:
                 benScore += 1
             else:
                 mariaScore += 1
