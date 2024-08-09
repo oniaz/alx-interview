@@ -2,15 +2,15 @@
 """ 0x0A. Prime Game """
 
 
-def primes_up_to(n):
+def count_primes_up_to(n):
     """
-    Generates a list of prime numbers up to y using the Sieve of Eratosthenes.
+    Counts prime numbers up to n using the Sieve of Eratosthenes.
 
     Args:
-        y: The upper limit for prime number generation.
+        n: The upper limit for prime number generation.
 
     Returns:
-        A list of prime numbers up to y.
+        Number of prime numbers up to n.
     """
     prime = [True for i in range(n+1)]
     p = 2
@@ -20,27 +20,12 @@ def primes_up_to(n):
                 prime[i] = False
         p += 1
 
-    # Create a list of prime numbers
     prime_count = 0
-    # primes = []
     for p in range(2, n+1):
         if prime[p]:
             prime_count += 1
-            # primes.append(p)
 
     return prime_count
-    # if y <= 1:
-    #     return []
-
-    # primes = [True] * (y + 1)
-    # primes[0] = primes[1] = False
-
-    # for p in range(2, int(y**0.5) + 1):
-    #     if primes[p]:
-    #         for i in range(p * p, y + 1, p):
-    #             primes[i] = False
-
-    # return [i for i in range(2, y + 1) if primes[i]]
 
 
 def isWinner(x, nums):
@@ -53,8 +38,7 @@ def isWinner(x, nums):
         if nums[i] == 1:
             benScore += 1
         else:
-            # if (len(primes_up_to(nums[i]))) % 2 == 0:
-            if (primes_up_to(nums[i])) % 2 == 0:
+            if (count_primes_up_to(nums[i])) % 2 == 0:
                 benScore += 1
             else:
                 mariaScore += 1
